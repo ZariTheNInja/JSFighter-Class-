@@ -92,7 +92,18 @@ function showControls() {
     controlsBox.innerHTML = '<button type="button" name="attack" onclick="Player0.single(Player1)">Single Attack!</button>'
   }
 }
+function koCheck(target, amount) {
+target.hp = target.hp - amount
+console.log(target.hp)
 
+if (target.hp <= 0) {
+  return true
+
+}
+else {
+  return false
+}
+}
 /*
 
 MHW = 'delicious'

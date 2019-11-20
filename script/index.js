@@ -48,6 +48,15 @@ class Fighter {
   //this logs who attacked who
   attack(target) {
     console.log(this.name + ' attacked ' + target.name);
+    //Generate Random Damage
+    Math.random(5)
+    console.log(Math.floor(Math.random() *10))
+    //Shows damage dealt in outputBox
+
+    //koCheck() to deal damage
+
+    //if koCheck() returns true; then say 'Knocked out' in outputBox
+    //else tell user remaining user hp in outputBox
   }
 
   single(target) {

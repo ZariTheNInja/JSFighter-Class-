@@ -52,7 +52,7 @@ class Fighter {
     Math.random()
     console.log(Math.floor(Math.random() *10))
     //Shows damage dealt in outputBox
-
+    outputBox.innerHTML = 
     //koCheck() to deal damage
 
     //if koCheck() returns true; then say 'Knocked out' in outputBox

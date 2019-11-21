@@ -49,7 +49,7 @@ class Fighter {
   attack(target) {
     console.log(this.name + ' attacked ' + target.name);
     //Generate Random Damage
-    Math.random(5)
+    Math.random()
     console.log(Math.floor(Math.random() *10))
     //Shows damage dealt in outputBox
 

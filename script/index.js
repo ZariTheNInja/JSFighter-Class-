@@ -176,8 +176,8 @@ function endTurn() {
     hideControls();
   }else{
     showControls();
-    
   }
+    updateBars();
 }
 
 function hideControls() {

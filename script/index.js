@@ -120,53 +120,23 @@ function koCheck(target, amount) {
 }
 
 
+//This function takes all the info to build an HP or SP bar, and ensure it is not greater than 100 or less than 0
+function updateBar(player, hpsp, min, max) {
+  let calculated = ((min / max) * 100)
+  if (calculated > 100) {
+    calculated = 100;
+  } else if (calculated < 0) {
+    calculated = 0;
+  }
+  return '<div class="' + hpsp + 'Bar"><div style="width:' + calculated + '%;" id="p0' + hpsp + 'Fill" class="' + hpsp + 'Fill">' + min + '</div></div>'
+}
+
+//This function makes the hp/sp bars and places them in the barsBox useing the updateBar
 function updateBars() {
-  //calculates the percent of HP
-  player0PercentHP = (Player0.hp / START_HP) * 100
-  player1PercentHP = (Player1.hp / START_HP) * 100
-  player0PercentHP = (Player0.sp / START_SP) * 100
-  player1PercentHP = (Player1.sp / START_SP) * 100
-
-  //Makes sure Player0's health is not greater than 100% or less than 0%
-  if (player0PercentHP <= 0) {
-    player0PercentHP = 0
-  } else if (player0PercentHP > 100) {
-    player0PercentHP = 100
-  } else {
-    player0PercentHP = player0PercentHP
-  }
-
-  //Makes sure Player1's health is not greater than 100% or less than 0%
-  if (player1PercentHP <= 0) {
-    player1PercentHP = 0
-  } else if (player1PercentHP > 100) {
-    player1PercentHP = 100
-  } else {
-    player1PercentHP = player1PercentHP
-  }
-
-  //Makes sure Player0's SP is not greater than 100% or less than 0%
-  if (player0PercentSP <= 0) {
-    player0PercentSP = 0
-  } else if (player0PercentSP > 100) {
-    player0PercentSP = 100
-  } else {
-    player0PercentSP = player0PercentSP
-  }
-
-  //Makes sure Player1's SP is not greater than 100% or less than 0%
-  if (player1PercentSP <= 0) {
-    player1PercentSP = 0
-  } else if (player1PercentSP > 100) {
-    player1PercentSP = 100
-  } else {
-    player1PercentSP = player1PercentSP
-  }
-  barsBox.innerHTML = ''
-  barsBox.innerHTML += 'P0<div class="hpBar"><div style="height:' + player0PercentHP + '%; width: 100%;" id="p0HPfill" class="HPfill"></div></div>'
-  barsBox.innerHTML += '<div class="spBar"><div style="height:' + player0PercentSP + '%; width: 100%;" id="p0SPfill" class="SPfill"></div></div>'
-  barsBox.innerHTML += 'P1<div class="hpBar"><div style="height:' + player1PercentHP + '%; width: 100%;" id="p1HPfill" class="HPfill"></div></div>'
-  barsBox.innerHTML += '<div class="spBar"><div style="height:' + player1PercentSP + '%; width: 100%;" id="p1SPfill" class="SPfill"></div></div>'
+  barsBox.innerHTML = updateBar(Player0, 'hp', Player0.hp, START_HP)
+  barsBox.innerHTML += updateBar(Player0, 'sp', Player0.sp, START_SP)
+  barsBox.innerHTML += updateBar(Player1, 'hp', Player1.hp, START_HP)
+  barsBox.innerHTML += updateBar(Player1, 'sp', Player1.sp, START_SP)
 }
 
 // EndTurn code

@@ -32,11 +32,11 @@ h1 {
 
 }
 
-.HPfill {
+.hpFill {
     background-color: #33FF33;
 }
 
-.SPfill {
+.spFill {
     background-color: #3333FF;
 }
 
@@ -44,9 +44,6 @@ h1 {
     background-color: #AA6666;
 }
 
-.hpBar {
-    background-color: #AA6666;
-}
 .spBar {
     background-color: #AA6666;
 }

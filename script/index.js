@@ -174,6 +174,9 @@ function endTurn() {
   playerTurn = !playerTurn
   if (koCheck(Player0, 0) || koCheck(Player1, 0)){
     hideControls();
+  }else{
+    showControls();
+    
   }
 }
 

@@ -49,18 +49,18 @@ class Fighter {
   attack(target) {
     console.log(this.name + ' attacked ' + target.name);
     //Generate Random Damage
-    Math.random()
-    console.log(Math.floor(Math.random() *10))
+    let damage = Math.floor(Math.random() *10);
     //Shows damage dealt in outputBox
-    outputBox.innerHTML = 
+    outputBox.innerHTML = damage
     //koCheck() to deal damage
-
+    koCheck(target,damage)
     //if koCheck() returns true; then say 'Knocked out' in outputBox
     //else tell user remaining user hp in outputBox
   }
 
   single(target) {
     this.attack(target);
+    endTurn()
   }
 
   double(target) {
@@ -172,12 +172,12 @@ function updateBars() {
 // EndTurn code
 function endTurn() {
   playerTurn = !playerTurn
-  if (kocheck(Player0, 0) || kocheck(Player1, 0)){
+  if (koCheck(Player0, 0) || koCheck(Player1, 0)){
     hideControls();
   }
 }
 
-function hideContols() {
+function hideControls() {
   controlsBox.innerHTML = "";
 }
 
